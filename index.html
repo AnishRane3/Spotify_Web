@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spotify - Your music player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+<body onpageshow="Gan()">
+    <nav>
+        <ul>
+            <li class="logo"><img src="spotify_logo.png" alt="Logo">LKS</li>
+            <li>Home</li>
+            <li>About</li>
+            
+        </ul>
+    </nav>
+    <div class="main_container">
+        <div class="cointainer1">
+            <div class="setting"><li><i class="fas fa-ellipsis-h"></i></li></div>
+
+            <div class="main_home" onclick="main_show()">
+                <div class="home"><li><i class="fa fa-home" aria-hidden="true"><h4 class="hname">Home</h4></i></li></div>
+           </div>
+
+            <div class="main_search">
+                <div class="search"><li ><i class="fa fa-search" aria-hidden="true"><h4 class="hname">Search</h4></i></li></div>
+            </div>
+            
+            <div class="main_library" onclick="gotolibrary()">
+                <div class="library"><li ><i class="fas fa-headphones-alt"><h4 class="lname">Library</h4></i></li></div>
+            </div>
+            <hr/>
+            <div class="main_createplaylist" onclick="gotocreateplaylist()">
+                <div class="createplaylist"><li><i class="far fa-plus-square"><h4 class="cpname">Create</h4><h4 class="cpname2">Playlist</h4></i></li></div>
+            </div>
+
+            <div class="main_liked">
+                <div class="liked"><li><i class="far fa-heart"><h4 class="liname">Liked</h4><h4 class="liname2">Songs</h4></i></li></div>
+            </div>
+        </div>
+
+        <div class="cointainer2">
+            <div class="create_conatiner" id="create_box" >
+                <div class="createplaylistformcontainer" id="formshowofcp"> 
+                    <div class="crossdiv"><div class="crossicon" onclick=" cutcreatewindow()"><i class="fas fa-times"></i></div></div>
+                    <form method="POST" class="formforcpinfo">
+                        <label class="imgselectforcpinfo"><div class="iconofimgselectforcpinfo"><i class="far fa-plus-square"></i>
+                            <input type="file" name="image" accept="image/jpeg, image/png," onchange="loadFile(event)" style="display: none;">
+                        </div>
+                        <p class="imguplodedbyuser"><img id="output" style="height:320px;
+                            width: 320px;" /></p>
+                        </label>
+                        <div class="doneofcp">
+                            <input type="submit" class="donebutton"  id="makeplaylist" value="Create Playlist"> 
+                        </div>
+                        <div class="nameselectforcpinfo">
+                            <input type="text" class="nameofcp" value="  My Playlist">
+                            <input type="text" class="discreptionofcp" value=" Add description">
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="headingofcp">
+                    <h3 class="headingofcpline"><div class="createplaylist containerbox"><li><i class="far fa-plus-square"></i></li></div>Create Playlist</h3>
+                    </div>
+                <div class="main_box1ofcp">
+                     <div class="box1ofmain_box1ofcp">
+                        <div class="box1ofmain_box1_addofcp"  onclick="showcreatewindow()">
+                            <div class="iconofbox1ofmain_box1_addofcp"><i class="fas fa-music"></i></div>
+                            <div class="editoverbox" id="icononbox1_1ofcp">
+                                <a href="#" class="editicononbox">
+                                    <i class="fas fa-pen"></i>
+                                    
+                                </a>
+                               <h6 class="createsentence">Create Playlist</h6>
+                            </div>
+                        </div>
+                                <div class="sen2">
+                                    <div class="playlistwordincp">Playlist</div>
+                                    <div class="myplaylistwordincp" onclick="showcreatewindow()">My Playlist</div>
+                                </div>
+                                
+
+                        
+                        </div>
+                        <div class="searchcontainerofcp">
+                            <div class="headerabovesearchcp">
+                                <h2 class="senofsearchofcp">Lets Find Song For Your Playlist</h2>   
+                            </div>
+                            <div class="searchbox">
+                                <div class="searchicon"><i class="fas fa-search"></i> Search</div>
+                                <input  class="searchbar" type="text" placeholder="Artists........,Songs.........,Albums.........,etc" name="search">
+                            </div>
+                        </div>
+                         
+                        </div>
+
+
+
+                        <div class="whitespaceofcp"></div> 
+
+
+
+            </div>
+
+            <div class="library_conatiner" id="library_box" >
+                
+
+            </div>
+
+
+
+            
+            <div class="sub_contain_ofcontain2" id="main_page_box">
+                <div class="welcomeviewer">
+                <h3 class="goodman" id="morning"></h3>
+                </div>
+                <div class="main_box1">
+                    <div class="header"><h5>Songs From Latest Movies</h5></div>
+                     <div class="box1ofmain_box1">
+                        <div class="box1ofmain_box1_cover">
+                            <div class="playoverbox" id="icononbox1_1">
+                                <a href="#" class="playicononbox">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                        <div class="box1ofmain_box1_name">
+                            <h3>Sooryavanshi - all songs</h3>
+                       </div>  
+                        </div>
+                    </div>
+                    
+                       <div class="box1ofmain_box1 box2">
+                        <div class="box1ofmain_box1_cover box2">
+                            <div class="playoverbox" id="icononbox1_2">
+                                <a href="#" class="playicononbox">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                            </div>
+                        <div class="box1ofmain_box1_name box2">
+                            <h3>Shershaah - all songs</h3>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="box1ofmain_box1 box3">
+                        <div class="box1ofmain_box1_cover box3">
+                            <div class="playoverbox" id="icononbox1_3">
+                                <a href="#" class="playicononbox">
+                                    <i class="fas fa-play"></i>
+                                </a>
+                        </div>
+                        <div class="box1ofmain_box1_name box3">
+                            <h3>chehre - all songs</h3>
+                        </div>
+                        </div>
+                    </div>
+                    
+                
+                    <div class="main_box1 box2">
+                        <div class="header"><h5>Latest From The Best</h5></div>
+                        <div class="box1ofmain_box1 box1_box2">
+                           <div class="box1ofmain_box1_cover box1_box2">
+                               <div class="playoverbox" id="icononbox2_1">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box1_box2">
+                               <h3>Jugnu - Badshaa</h3>
+                          </div>  
+                           </div>
+                       </div>
+                       
+                          <div class="box1ofmain_box1 box2_box2">
+                           <div class="box1ofmain_box1_cover box2_box2">
+                               <div class="playoverbox" id="icononbox2_2">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box2_box2">
+                               <h3>Kusu Kusu - Zahrah S Khan</h3>
+                           </div>
+                           </div>
+                       </div>
+                       
+                       <div class="box1ofmain_box1 box3_box2">
+                           <div class="box1ofmain_box1_cover box3_box2">
+                               <div class="playoverbox" id="icononbox2_3">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                           </div>
+                           <div class="box1ofmain_box1_name box3_box2">
+                               <h3>Ghana Kasoota - Raftaar</h3>
+                           </div>
+                           </div>
+                       </div>
+
+
+                       <div class="main_box1 box3">
+                        <div class="header"><h5>Best Of The Best</h5></div>
+                        <div class="box1ofmain_box1 box1_box3">
+                           <div class="box1ofmain_box1_cover box1_box3">
+                               <div class="playoverbox" id="icononbox3_1">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box1_box3">
+                               <h3>This is Arijit Singh</h3>
+                          </div>  
+                           </div>
+                       </div>
+                       
+                          <div class="box1ofmain_box1 box2_box3">
+                           <div class="box1ofmain_box1_cover box2_box3">
+                               <div class="playoverbox" id="icononbox3_2">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box2_box3">
+                               <h3>This is Sonu Nigam</h3>
+                           </div>
+                           </div>
+                       </div>
+                       
+                       <div class="box1ofmain_box1 box3_box3">
+                           <div class="box1ofmain_box1_cover box3_box3">
+                               <div class="playoverbox" id="icononbox3_3">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                           </div>
+                           <div class="box1ofmain_box1_name box3_box3">
+                               <h3>This is A. R. Rahman</h3>
+                           </div>
+                           </div>
+                       </div>
+
+
+                       <div class="main_box1 box4">
+                        <div class="header"><h5>Rap Songs - Most Loved Rappers</h5></div>
+                        <div class="box1ofmain_box1 box1_box4">
+                           <div class="box1ofmain_box1_cover box1_box4">
+                               <div class="playoverbox" id="icononbox4_1">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box1_box4">
+                               <h3>Emiway Bantai</h3>
+                          </div>  
+                           </div>
+                       </div>
+                       
+                          <div class="box1ofmain_box1 box2_box4">
+                           <div class="box1ofmain_box1_cover box2_box4">
+                               <div class="playoverbox" id="icononbox4_2"> 
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box2_box4">
+                               <h3>Divine</h3>
+                           </div>
+                           </div>
+                       </div>
+                       
+                       <div class="box1ofmain_box1 box3_box4">
+                           <div class="box1ofmain_box1_cover box3_box4">
+                               <div class="playoverbox" id="icononbox4_3">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                           </div>
+                           <div class="box1ofmain_box1_name box3_box4">
+                               <h3>Mc - Stan</h3>
+                           </div>
+                           </div>
+                       </div>
+
+
+                       <div class="main_box1 box5">
+                        <div class="header"><h5>Old is Gold - Top Hits Of Evergreen Singers</h5></div>
+                        <div class="box1ofmain_box1 box1_box5">
+                           <div class="box1ofmain_box1_cover box1_box5">
+                               <div class="playoverbox" id="icononbox5_1">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box1_box5">
+                               <h3>Top Hits - Lata Mangeshkar</h3>
+                          </div>  
+                           </div>
+                       </div>
+                       
+                          <div class="box1ofmain_box1 box2_box5">
+                           <div class="box1ofmain_box1_cover box2_box5">
+                               <div class="playoverbox" id="icononbox5_2">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box2_box5">
+                               <h3>Top Hits - Mohammed Rafi</h3>
+                           </div>
+                           </div>
+                       </div>
+                       
+                       <div class="box1ofmain_box1 box3_box5">
+                           <div class="box1ofmain_box1_cover box3_box5">
+                               <div class="playoverbox" id="icononbox5_3">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                           </div>
+                           <div class="box1ofmain_box1_name box3_box5">
+                               <h3>Top Hits - Kishore Kumar</h3>
+                           </div>
+                           </div>
+                       </div>
+
+
+                       <div class="main_box1 box6">
+                        <div class="header"><h5>English Songs</h5></div>
+                        <div class="box1ofmain_box1 box1_box6">
+                           <div class="box1ofmain_box1_cover box1_box6">
+                               <div class="playoverbox" id="icononbox6_1">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box1_box6">
+                               <h3>Ed Sheeran</h3>
+                          </div>  
+                           </div>
+                       </div>
+                       
+                          <div class="box1ofmain_box1 box2_box6">
+                           <div class="box1ofmain_box1_cover box2_box6">
+                               <div class="playoverbox" id="icononbox6_2">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                               </div>
+                           <div class="box1ofmain_box1_name box2_box6">
+                               <h3>Harry Styles</h3>
+                           </div>
+                           </div>
+                       </div>
+                       
+                       <div class="box1ofmain_box1 box3_box6">
+                           <div class="box1ofmain_box1_cover box3_box6">
+                               <div class="playoverbox" id="icononbox6_3">
+                                   <a href="#" class="playicononbox">
+                                       <i class="fas fa-play"></i>
+                                   </a>
+                           </div>
+                           <div class="box1ofmain_box1_name box3_box6">
+                               <h3>Justin Bieber</h3>
+                           </div>
+                           </div>
+                       </div>
+
+                       
+
+
+
+
+
+
+
+
+
+
+
+                       </div>
+
+                       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+
+
+
+
+                       
+                       </div>
+
+
+
+                       
+
+             </div>
+
+
+
+
+
+
+               <div class="whitespace"></div> 
+            </div>
+        </div>
+    </div>
+    
+    <div class="playbar"> 
+        <div><input type="range" id="song_progressbar" class="playprogress" min="0" max="100" value="0"></div>
+        
+        <div class="control">
+            <div class="main_smallcurrentsongcover">
+                <div class="smallcurrentsongcover" id="currentsongimg"></div>
+                <div class="playinggif" id="gif">
+
+                </div>
+                <div class="add_like" ><i class="far fa-heart" id="like"></i></div>
+                <div class="smallcurrentsongname" id="currentsongname">
+                </div>
+            </div>
+            
+            <div class="playpause"><i class="fa fa-play" id=pp></i></div>
+            <div class="backwardmusic"><i class="fa fa-backward" aria-hidden="true"></i></div>
+            <div class="forwardmusic"><i class="fa fa-forward" aria-hidden="true"></i></div>
+            <div class="shuffle"><i class="fa fa-random" aria-hidden="true"></i></div>
+        
+            <div class="main_volume">
+                <div class="volume_icon"><i class="fas fa-volume-down" id="mute"></i></div>
+                <div><input type="range"  class="volumecontrol"  id="volume" min="0" max="100" value="20"></div>
+                <div class="more_options"><i class="fas fa-ellipsis-h"></i></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
